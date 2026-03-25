@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -8,8 +8,13 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #050505;
 }
 
 body {
   font-family: var(--font-sans);
+  background-color: #050505;
+  color: #e4e4e7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

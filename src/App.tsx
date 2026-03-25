@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { useState } from "react";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
@@ -19,7 +14,7 @@ export default function App() {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans selection:bg-indigo-500/30">
+    <div className="min-h-screen bg-[#050505] text-zinc-300 font-sans selection:bg-indigo-500/30">
       <Header onCtaClick={openModal} />
       
       <main>

@@ -63,7 +63,7 @@ export function CtaModal({ isOpen, onClose }: CtaModalProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm"
             onClick={onClose}
           />
           <motion.div
@@ -72,56 +72,56 @@ export function CtaModal({ isOpen, onClose }: CtaModalProps) {
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             className="fixed left-1/2 top-1/2 z-50 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 p-4"
           >
-            <div className="relative overflow-hidden rounded-2xl bg-white shadow-2xl">
+            <div className="relative overflow-hidden bg-[#0a0a0a] border border-white/10 shadow-2xl">
               <button
                 onClick={onClose}
-                className="absolute right-4 top-4 z-10 rounded-full p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-colors"
+                className="absolute right-4 top-4 z-10 p-2 text-zinc-500 hover:text-white transition-colors"
               >
                 <X className="h-5 w-5" />
               </button>
 
-              <div className="p-6 sm:p-8 max-h-[80vh] overflow-y-auto">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 text-indigo-600">
+              <div className="p-8 sm:p-10 max-h-[80vh] overflow-y-auto">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="flex h-10 w-10 items-center justify-center bg-indigo-500/10 text-indigo-500">
                     <Sparkles className="h-5 w-5" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900">AI-Разбор ситуации</h3>
+                  <h3 className="text-xl font-medium text-white tracking-tight">AI-Разбор ситуации</h3>
                 </div>
 
                 {!analysisResult ? (
-                  <form onSubmit={handleAnalyze} className="space-y-5">
+                  <form onSubmit={handleAnalyze} className="space-y-6">
                     <div>
-                      <label htmlFor="business" className="block text-sm font-medium text-slate-700 mb-1">
-                        Какая у вас ниша? (Например: салон красоты, онлайн-школа)
+                      <label htmlFor="business" className="block text-xs font-medium text-zinc-400 mb-2 uppercase tracking-widest">
+                        Ниша бизнеса
                       </label>
                       <input
                         type="text"
                         id="business"
                         value={businessType}
                         onChange={(e) => setBusinessType(e.target.value)}
-                        className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all"
-                        placeholder="Опишите ваш бизнес..."
+                        className="w-full bg-[#050505] border border-white/10 px-4 py-4 text-white focus:border-indigo-500 focus:outline-none transition-colors font-light"
+                        placeholder="Например: салон красоты, онлайн-школа"
                         required
                       />
                     </div>
                     <div>
-                      <label htmlFor="problem" className="block text-sm font-medium text-slate-700 mb-1">
-                        В чем главная проблема сейчас?
+                      <label htmlFor="problem" className="block text-xs font-medium text-zinc-400 mb-2 uppercase tracking-widest">
+                        Главная проблема
                       </label>
                       <textarea
                         id="problem"
                         value={problem}
                         onChange={(e) => setProblem(e.target.value)}
                         rows={3}
-                        className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all resize-none"
-                        placeholder="Например: заявки идут, но менеджеры не успевают отвечать..."
+                        className="w-full bg-[#050505] border border-white/10 px-4 py-4 text-white focus:border-indigo-500 focus:outline-none transition-colors resize-none font-light"
+                        placeholder="Например: заявки идут, но менеджеры не успевают отвечать"
                         required
                       />
                     </div>
                     <button
                       type="submit"
                       disabled={isAnalyzing}
-                      className="w-full rounded-lg bg-indigo-600 px-4 py-3 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-all disabled:opacity-70 flex justify-center items-center gap-2"
+                      className="w-full bg-white text-black px-8 py-5 text-sm font-medium hover:bg-zinc-200 transition-colors uppercase tracking-widest disabled:opacity-70 flex justify-center items-center gap-3 mt-4"
                     >
                       {isAnalyzing ? (
                         <>
@@ -134,13 +134,13 @@ export function CtaModal({ isOpen, onClose }: CtaModalProps) {
                     </button>
                   </form>
                 ) : (
-                  <div className="space-y-6">
-                    <div className="prose prose-sm prose-indigo max-w-none text-slate-600">
+                  <div className="space-y-8">
+                    <div className="prose prose-sm prose-invert max-w-none text-zinc-400 font-light leading-relaxed">
                       <Markdown>{analysisResult}</Markdown>
                     </div>
                     <button
                       onClick={onClose}
-                      className="w-full rounded-lg bg-slate-900 px-4 py-3 text-base font-semibold text-white shadow-sm hover:bg-slate-800 transition-all"
+                      className="w-full bg-white text-black px-8 py-5 text-sm font-medium hover:bg-zinc-200 transition-colors uppercase tracking-widest text-center"
                     >
                       Записаться на внедрение
                     </button>

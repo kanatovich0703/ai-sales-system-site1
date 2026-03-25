@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { motion } from "motion/react";
 import { Layers } from "lucide-react";
 
 interface HeaderProps {
@@ -19,22 +18,22 @@ export function Header({ onCtaClick }: HeaderProps) {
 
   return (
     <header
-      className={`fixed top-0 z-40 w-full transition-all duration-300 ${
-        scrolled ? "bg-slate-950/80 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"
+      className={`fixed top-0 z-40 w-full transition-all duration-300 border-b border-white/5 ${
+        scrolled ? "bg-[#050505]/95 backdrop-blur-md py-4" : "bg-[#050505] py-6"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
-        <div className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600">
-            <Layers className="h-5 w-5 text-white" />
+        <div className="flex items-center gap-3">
+          <div className="flex h-8 w-8 items-center justify-center bg-white text-black">
+            <Layers className="h-5 w-5" />
           </div>
-          <span className="text-xl font-bold text-white tracking-tight">SystemPro</span>
+          <span className="text-lg font-medium text-white tracking-wide uppercase">SystemPro</span>
         </div>
         
         <div className="flex items-center gap-4">
           <button
             onClick={onCtaClick}
-            className="rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white hover:bg-white/20 transition-colors backdrop-blur-sm"
+            className="text-xs font-medium text-zinc-400 hover:text-white transition-colors uppercase tracking-widest"
           >
             Связаться
           </button>

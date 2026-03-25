@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import { ArrowRight, PlayCircle } from "lucide-react";
 
 interface HeroProps {
   onCtaClick: () => void;
@@ -7,63 +6,54 @@ interface HeroProps {
 
 export function Hero({ onCtaClick }: HeroProps) {
   return (
-    <section className="relative overflow-hidden bg-slate-950 text-white pt-24 pb-32 lg:pt-36 lg:pb-40">
-      <div className="absolute inset-0 bg-[url('https://picsum.photos/seed/abstract-dark/1920/1080?blur=10')] bg-cover bg-center opacity-20" />
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-slate-950/80 to-slate-950" />
+    <section className="relative pt-40 pb-24 lg:pt-56 lg:pb-32 border-b border-white/5 overflow-hidden bg-[#050505]">
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
       
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="inline-flex items-center rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-medium text-indigo-400 ring-1 ring-inset ring-indigo-500/20 mb-8">
-              Система привлечения и обработки клиентов
-            </span>
+            <p className="text-indigo-500 text-xs font-medium tracking-[0.2em] uppercase mb-8 flex items-center gap-4">
+              <span className="w-8 h-[1px] bg-indigo-500"></span>
+              Системный подход к продажам
+            </p>
           </motion.div>
           
           <motion.h1 
-            className="text-4xl font-bold tracking-tight sm:text-6xl mb-6"
+            className="text-5xl sm:text-7xl lg:text-[5.5rem] font-medium tracking-tighter text-white mb-10 leading-[1.05]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            Вы привлекаете клиентов, но часть из них <span className="text-indigo-400">теряется после заявки</span>
+            Вы привлекаете клиентов, <br className="hidden sm:block" />
+            но часть из них <span className="text-zinc-600">теряется после заявки.</span>
           </motion.h1>
           
           <motion.p 
-            className="mt-6 text-lg leading-8 text-slate-300 mb-10"
+            className="mt-6 text-xl leading-relaxed text-zinc-400 mb-12 max-w-2xl font-light"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            Я выстраиваю систему — от привлечения клиентов до их обработки и фиксации в CRM, где каждая заявка под контролем и больше клиентов доходят до сделки.
+            Я выстраиваю систему — от привлечения клиентов до их обработки и фиксации в CRM. Каждая заявка под контролем. Больше клиентов доходят до сделки.
           </motion.p>
           
           <motion.div 
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
             <button
               onClick={onCtaClick}
-              className="rounded-full bg-indigo-600 px-8 py-4 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-all flex items-center gap-2 group w-full sm:w-auto justify-center"
+              className="bg-white text-black px-10 py-5 text-sm font-medium hover:bg-zinc-200 transition-colors uppercase tracking-widest"
             >
               Разобрать свою ситуацию
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </motion.div>
-          
-          <motion.p 
-            className="mt-4 text-sm text-slate-400"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            Покажу, где у вас теряются заявки и что можно улучшить
-          </motion.p>
         </div>
       </div>
     </section>
